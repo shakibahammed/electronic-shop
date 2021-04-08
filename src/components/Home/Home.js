@@ -14,6 +14,13 @@ const Home = () => {
 
     return (
         <div className="row ">
+
+            {
+                products.length === 0 && <div style={{margin:'0 auto'}} class="spinner-border text-primary " role="status">
+                <span class="visually-hidden"></span>
+              </div>
+            }
+
             {
                 products.map( pd => <Product pd={pd}></Product>)
             }
