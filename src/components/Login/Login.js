@@ -5,6 +5,7 @@ import firebaseConfig from '../../firebase.config';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 } else {
@@ -41,11 +42,14 @@ const Login = () => {
     }
 
     return (
-        
-        <div>
-            <h2>this is login</h2>
+
+           <div >
+
+           <h2>Please logIn</h2>
             <button onClick={handleGoogleSignIn}>Continue with google</button>
-        </div>
+            
+           </div>
+        
     );
 };
 
