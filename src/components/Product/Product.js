@@ -16,12 +16,14 @@ const Product = (props) => {
 
     return (
 
-        <div className="col-md-4 col-sm-12 products  " >
+        <div className="col-md-4 col-sm-12   " >
 
-            <img style={{height: '100px'}} src= {imageUrl} alt=""/>
-            <h3>Product :{name}</h3>
-            <p> Price:{price}</p>
+           <div className="products">
+           <img className="image-fluid" style={{height: '100px'}} src= {imageUrl} alt=""/>
+            <h3>{name}</h3>
+            <h3>Price:{price}</h3> 
             <button onClick={ () => handleBuyProduct(name)}>Buy Now</button>
+           </div>
         </div>
     );
 };
