@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -7,24 +8,24 @@ const Header = () => {
         <div className="container-fluid">
             <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+    <Link class="nav-link active" aria-current="page" to="/home">Home</Link>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/order">Order</a>
+    <Link class="nav-link" to="/order">Order</Link>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/login">Login</a>
+    <Link class="nav-link" to="/login">Login</Link>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="#"  >Deals</a>
+    <Link class="nav-link " to="/home"  >Deals</Link>
   </li>
   <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/admin" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link class="nav-link dropdown-toggle" to="/admin" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Admin
-          </a>
+          </Link>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/manageProduct">Manage Product</a></li>
-            <li><a class="dropdown-item" href="/addProduct">Add Product</a></li>
+            <li><Link class="dropdown-item" to="/manageProduct">Manage Product</Link></li>
+            <li><Link class="dropdown-item" to="/addProduct">Add Product</Link></li>
             
           </ul>
         </li>

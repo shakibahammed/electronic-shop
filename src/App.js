@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  
 } from "react-router-dom";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -12,14 +11,22 @@ import Admin from './components/Admin/Admin';
 import Login from './components/Login/Login';
 import NoMatch from './components/NoMatch/NoMatch';
 import AddProduct from './components/AddProduct/AddProduct';
+import { createContext, useState } from 'react';
+import CheckOut from './components/CheckOut/CheckOut';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ManageProduct from './components/ManageProduct/ManageProduct';
 
+
+export const UserContext =createContext();
 
 function App() {
+  const [loggedInUser,setLoggedInUser] = useState({})
 
   return (
-    <div className="App">
- <h1>Electronics Shop</h1>
 
+    <UserContext.Provider value={ [loggedInUser,setLoggedInUser]} >
+
+ <h1 style={{textAlign:'center',backgroundColor:'yellowgreen',padding:'5px',color:'whitesmoke'}}>Electronics Shop</h1>
 <Router>
   <Header></Header>
 
@@ -28,13 +35,17 @@ function App() {
     <Home></Home>
     </Route>
 
-    <Route path='/order'>
-    <Order></Order>
-    </Route>
+    <PrivateRoute path='/checkOut/:name'> 
+    <CheckOut></CheckOut>
+    </PrivateRoute>
 
-    <Route path="/admin">
+    <PrivateRoute path='/order'>
+    <Order></Order>
+    </PrivateRoute>
+
+    <PrivateRoute path="/admin">
     <Admin></Admin>
-    </Route>
+    </PrivateRoute>
 
     <Route path="/login">
     <Login></Login>
@@ -44,10 +55,19 @@ function App() {
     <Home></Home>
     </Route> 
 
-    <Route path="/addProduct">
+
+    <Route exact path='/deals'>
+    <Home></Home>
+    </Route> 
+
+    <PrivateRoute path="/addProduct">
     <AddProduct></AddProduct>
-    </Route>
-  
+    </PrivateRoute>
+
+    <PrivateRoute path="/manageProduct">
+    <ManageProduct></ManageProduct>
+    </PrivateRoute>
+    
     <Route path="*">
            <NoMatch></NoMatch>
      </Route>
@@ -55,7 +75,7 @@ function App() {
   </Switch>
 </Router>
       
-    </div>
+</UserContext.Provider>
   );
 }
 

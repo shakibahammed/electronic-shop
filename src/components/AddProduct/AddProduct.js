@@ -35,7 +35,7 @@ const AddProduct = () => {
           quantity: data.productWeight
       }
       const url =`http://localhost:5000/addProduct`
-      console.log(productDetails)
+      // console.log(productDetails)
       fetch(url, {
         method: 'POST', 
         headers: {
@@ -55,7 +55,7 @@ const AddProduct = () => {
         
       <input name="name" placeholder="Product Name" ref={register} />
       <br/>
-      <input name="productPrice" placeholder="Price" type="number" ref={register} />
+      <input name="productPrice" defaultValue="$" placeholder="Price" type="number" ref={register} />
       <br/>
       <input name="productQuantity" placeholder="quantity" ref={register} />
       <br/>

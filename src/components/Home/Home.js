@@ -13,7 +13,7 @@ const Home = () => {
 
 
     return (
-        <div className="row">
+        <div className="row ">
             {
                 products.map( pd => <Product pd={pd}></Product>)
             }
