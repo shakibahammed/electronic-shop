@@ -8,7 +8,7 @@ const Order = () => {
     const [loggedInUser,setLoggedInUser] = useContext(UserContext)
 
     useEffect(() => {
-        fetch('http://localhost:5000/OrderCard?email='+loggedInUser.email, {
+        fetch('https://aqueous-lake-37138.herokuapp.com/OrderCard?email='+loggedInUser.email, {
             method: 'GET',
             headers: { 
                 'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const Order = () => {
     }, [])
 
     // useEffect( () =>{
-    //     fetch('http://localhost:5000/OrderCard?email='+loggedInUser.email)
+    //     fetch('https://aqueous-lake-37138.herokuapp.com/OrderCard?email='+loggedInUser.email)
     //     .then(res => res.json())
     //     .then(data => setBuyProduct(data))
 

@@ -10,7 +10,7 @@ const CheckOut = () => {
 
     const [ product , setProduct] =useState([])
     useEffect( () => {
-        fetch('http://localhost:5000/products')
+        fetch('https://aqueous-lake-37138.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setProduct(data))
 
@@ -24,7 +24,7 @@ const handelOrder = ()=> {
   const completeOrder ={...loggedInUser,...productItem,_id:Math.random(), orderTime: new Date()}
 console.log(completeOrder)
 
-  fetch('http://localhost:5000/addedOrder', {
+  fetch('https://aqueous-lake-37138.herokuapp.com/addedOrder', {
     method: 'POST', 
     headers: {'content-Type':'application/json'},
     body:JSON.stringify(completeOrder)

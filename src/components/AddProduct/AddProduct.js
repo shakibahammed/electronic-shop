@@ -34,7 +34,7 @@ const AddProduct = () => {
           price: data.productPrice ,
           quantity: data.productWeight
       }
-      const url =`http://localhost:5000/addProduct`
+      const url =`https://aqueous-lake-37138.herokuapp.com/addProduct`
       // console.log(productDetails)
       fetch(url, {
         method: 'POST', 
